@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="messages_box">
+    <h1>chat room:{{code}}</h1>
+    <div class="messages" id="messages"></div>
+    <div class="inputs">
+        <input type="text" name="message" id="message" placeholder="message" rows="3">
+        <button type="button" name="send" id="send_btn" onclick="sendmessage()">Send</button>
+    </div>
+</div>
+<script type="text/javascript">
+    var socketio= io(); //this listerns for the messages from server
+     
+    const messages=document.getElementById("messages");
+
+    const createmessage = (name,msg) =>{
+        const content =`
+        <div class="text">
+            <span>
+                <strong> ${name} </strong>: ${msg}
+            </span>
+            <span class="muted">
+                ${new Date().toLocaleString()}
+            </span>
+        </div>
+        `
+        messages.innerHTML += content;
+    }
+
+
+    /*this line continiously listerns to the messages from the app.py or server 
+    send({"name":name,"message":'has left the room'},to=root) it is an message
+    {"name":name,"message":'has left the room'}===>data and its elements are name, message*/
+
+    socketio.on("message",(data)=>{
+        createmessage(data.name,data.message);
+    })
+
+
+        //message is an default event in the socketio
+        //when that event occors when send button is clicked then the data is send to 
+        //sever socketio("messages") function in the app.py 
+    const sendmessage =() =>{
+        const message=document.getElementById("message") 
+        if(message.value =="")return;
+        socketio.emit("message",{data:message.value}); 
+        message.value="";
+    }
+</script>
+
+{%for msg in messages%}
+    <script type="text/javascript">
+        createmessage("{{msg.name}}","{{msg.message}}")
+    </script>
+{%endfor%}
+{%endblock%}

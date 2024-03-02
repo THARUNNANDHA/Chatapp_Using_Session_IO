@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="" method="post" class="fom">
+    
+    <h1>chat room</h1>
+    <div class="name">
+        
+        <label for="">Name</label>
+        <input type="text" name="name"  value="{{name}}" placeholder="name"> 
+    </div>
+    <div class="join">
+        <label for="">code</label>
+        <input type="text" name="code"  value="{{code}}" placeholder="code">
+        <button type="submit" name="join">Join</button>
+    </div>
+    <button type="submit" name="create" class="create">Create</button>
+    {%if error%}
+    <ul>
+        <li>
+            {{error}}
+        </li>
+    </ul>
+    {%endif %}
+</form>
+{% endblock %}

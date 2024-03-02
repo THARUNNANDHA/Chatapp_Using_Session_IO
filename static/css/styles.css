@@ -1,0 +1,77 @@
+body{
+    background-color: aqua;
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.content{
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: azure;
+    border-radius: 10px;
+}
+.name{
+    width: 100%;
+    
+}
+.join{
+    width: 100%;
+    flex-direction: row;
+}
+
+.fom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.create{
+    width: 100%;
+}
+
+.messages_box{
+    border: 2px solid black;
+    background-color: whitesmoke;
+    flex-direction: column;
+    display: flex;
+    width: 80vw;
+    height: 80vh;
+    align-items: stretch;
+}
+.messages{
+    overflow-y: scroll;
+    flex: 1;
+    width: 100%;
+}
+
+.inputs{
+    padding: 10px;
+    display: flex;
+}
+
+h1{
+    text-align: center;
+}
+
+#message{
+    flex: 1;
+}
+
+.text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.muted{
+    font-size: 10px;
+    color: darkgrey;
+}
