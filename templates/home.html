@@ -2,21 +2,21 @@
 {% block content %}
 <form action="" method="post" class="fom">
     
-    <h1>chat room</h1>
+    <h1 style="color: white;">chat room</h1>
     <div class="name">
         
-        <label for="">Name</label>
+        <label for="" class="heading">Name</label>
         <input type="text" name="name"  value="{{name}}" placeholder="name"> 
     </div>
     <div class="join">
-        <label for="">code</label>
+        <label for="" class="heading">Code</label>
         <input type="text" name="code"  value="{{code}}" placeholder="code">
         <button type="submit" name="join">Join</button>
     </div>
     <button type="submit" name="create" class="create">Create</button>
     {%if error%}
     <ul>
-        <li>
+        <li style="color: white;">
             {{error}}
         </li>
     </ul>
