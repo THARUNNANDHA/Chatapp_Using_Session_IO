@@ -4,7 +4,7 @@ from string import ascii_uppercase
 import random
 from pymongo import MongoClient
 
-client= MongoClient("mongodb+srv://root:root@chatapp.ciyouib.mongodb.net/?retryWrites=true&w=majority&appName=chatapp")
+client= MongoClient("mongodb+srv://root:<password>@chatapp.ciyouib.mongodb.net/?retryWrites=true&w=majority&appName=chatapp")
 chat_db=client.get_database("chatdb")
 user_collection=chat_db.get_collection("users")
 
